@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    /**
+     * 流程控制语句
+     *  - JS中的程序是从上到下一行一行执行的
+     *  - 通过流程控股之语句可以控制程序执行流程，
+     *    使程序可以根据一定的条件来选择执行
+     *  - 语句的分类
+     *    1.条件判断语句
+     *    2.条件分支语句
+     *    3.循环语句
+     */
+     /* 条件判断语句：
+     *  - 使用条件判断语句可以在执行某个语句之前进行判断
+     *    如果条件成立才会执行语句，条件不成立则语句不执行
+     *  - if语句
+     *    - 语法1：
+     *       if(条件表达式){
+     *         语句...
+     *       }
+     *       if语句在执行时，先对表达式求值判断，如果表达式的值是true则执行if后的语句
+     *       如果条件表达式的值为false,则不会执行if后的语句
+     *         if语句只能控制紧随其后的那个语句，
+     *         如果希望if语句可以控制多条语句，可以将这些语句统一放到代码块中
+     *       if语句后的代码块不是必须的，但是在开发中尽量写上代码块，及时if后只有一条语句
+     *    - 语法2：
+     *        if(条件表达式){
+     *          语句...
+     *        }else{
+     *          语句...
+     *        }
+     *      if..else...语句，当语句执行时，会先对if后的条件表达式
+     *      进行求值判断
+     *        如果该值是true则会执行if后的语句
+     *        如果该值是false,则执行else后的语句
+     *    - 语法3：
+     *        if(条件表达式){
+     *          语句...
+     *        }else if(条件表达式){
+     *          语句...
+     *        }else if(){
+     *          语句...
+     *        }else{
+     *          语句...
+     *        }
+     *      该语句执行时会从上到下依次对条件表达式进行求值判断，
+     *      如果值为true则执行当前语句，
+     *      如果值为false，则继续向下判断。
+     *      如果所有的条件都不满足，则执行最后一个else后的语句
+     *      该语句中只会有一个代码块被执行，一旦代码块执行，则直接结束语句
+     * 
+     *  - 条件分支语句也叫switch语句
+     *    语法：
+     *      Switch(条件表达式){
+     *        case 表达式:
+     *             语句...
+     *             break;
+     *        case 表达式:
+     *             语句...
+     *             break;
+     *        case 表达式:
+     *             语句...
+     *             break;
+     *        default:
+     *             语句...
+     *             break;
+     *      }
+     *      执行流程：
+     *        switch...case...语句在执行时会依次将case后的表达式的值和switch后的条件表达式的
+     *        的值进行全等比较
+     *        如果比较结果为true,则从当前case处开始执行代码。
+     *          当前case后的多有代码都会被执行,可以在case的后端跟一个break关键字
+     *          来结束switch分支语句
+     *        如果比较结果为false,则继续向下进行比较
+     *        如果所有的比较结果都为false,则只执行default后的语句
+     * 
+     * switch语句和if语句的功能实际上有重复的，使用switch可以实现if的功能
+     * 同样if也可以实现switch的功能。
+     * 
+     * -循环语句
+     *    - 通过循环语句可以反复执行一段代码多次
+     *    while循环
+     *    - 语法：
+     *        while(条件表达式){
+     *          语句...
+     *        }
+     *        - 执行流程：
+     *          先对表达式进行求值判断，如果值为true，则执行循环体
+     *          循环执行完毕以后，继续对表达式进行判断，如果为true
+     *          则继续执行循环体，以此类推。
+     *          如果值为false，则终止循环
+     *    do...while循环
+     *    - 语法：
+     *        do{
+     *          ...
+     *        }while(条件表达式)
+     *        - 执行流程：
+     *          do...while语句在执行时，会先执行循环体，
+     *          循环体执行完毕以后，在对while后的条件表达式进行判断
+     *          如果结果为true则继续执行循环体，执行完毕继续判断依次类推
+     *          如果结果为false,则终止循环
+     * 
+     *  实际上while和do...while两个语句功能类似，不同的是while语句先判断后执行
+     *  而do...while会先执行后判断，do...while循环至少循环一次。
+     * 
+     *    for循环
+     *      在for循环中，提供了专门的位置来存放三个表达式：
+     *      1.初始化表达式
+     *      2.条件表达式
+     *      3.更新表达式
+     *      - 语法：
+     *        for(初始化表达式,条件表达式,更新表达式){
+     *          语句...
+     *        }
+     *      - 执行流程：
+     *        1.执行初始化表达式，初始化变量（只执行一次）
+     *        2.执行条件表达式，判断是否执行循环
+     *          如果为true，3.则执行循环
+     *          如果为false,终止循环
+     *        4.执行更新表达式，更新表达式执行完毕继续重复第二步
+     * 
+     *       
+    */
+    
+    var a = 10;
+    if(a>10) 
+      alert("a>10");
+
+    var age = 60;
+    if(age >= 60){
+      alert("已经退休");
+    }else{
+      alert("还没退休");
+    }
+
+    if(age>100){
+      alert("100");
+    }else if(age>80){
+      alert("80");
+    }else if(age>60){
+      alert("60");
+    }else if(age>30){
+      alert("30");
+    }else if(age>18){
+      alert("成年");
+    }else{
+      alert("child");
+    }
+    //下面是错误的写法 age=40时依旧会执行第一个代码块
+    if(age>18){
+      alert("18");
+    }else if(age>30){
+      alert("30");
+    }else if(age>60){
+      alert("60");
+    }else if(age>80){
+      alert("80");
+    }else if(age>100){
+      alert("100");
+    }
+
+    //根据num的值输出对应的中文
+    var num = 1
+    switch(num){
+      case 1:
+        console.log('壹');
+        //使用break可以退出switch语句
+        break;
+      case 2:
+        console.log('贰');
+        break;
+      case 3:
+        console.log('叁');
+        break;
+      default:
+        console.log("非法数字");
+        break;
+    }
+
+    //根据成绩判断是否及格
+    var score = 70;
+    //方法1
+    switch(parseInt(score/10)){
+      case 6:
+      case 7:
+      case 8:
+      case 9:
+      case 10:
+        console.log("合格");
+        break;
+      default:
+        console.log("不合格");
+        break;
+    }
+    //方法2
+    switch(true){
+      case score >= 60:
+        console.log("合格");
+        break;
+      default:
+        console.log("不合格");
+        break;
+    }
+
+    //像页面中输出连续的数字
+    document.write(1+"<br/>");
+    document.write(2+"<br/>");
+    document.write(3+"<br/>");
+    document.write(4+"<br/>");
+    //这种表达式恒为true的循环叫做死循环
+    //该循环不会停止，除非浏览器关闭，死循环在开发中慎用
+    //可以使用break来终止循环
+    while(true){
+      alert(n++);
+      if(n == 10){
+        break;
+      }
+    }
+    //创建一个循环，往往需要三个步骤
+    //1.初始化一个变量
+    var i = 0;
+    //在循环中设置一个条件表达式
+    while(i < 10){
+      //3.定义一个更新表达式，每次更新初始化变量
+      i++;
+    }
+
+    //for循环中的三个部分都可以省略，也可以写在外部
+    //如果for循环中不写任何表达式，只写两个;
+    //此时循环是一个死循环，会一直执行下去
+    var i = 0;
+    for(;i<10;){
+      alert(i++);
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

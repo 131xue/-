@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    /**
+     * 基本数据类型：String Number Boolean Null Undefined
+     * 引用数据类型：Object
+     * 
+     * JS中的变量都是保存到栈内存中的
+     * 基本数据类型的值直接在栈内存中存储
+     * 值与值之间是独立存在，修改一个变量不会影响其他的变量
+     * 
+     * 对象是保存在堆内存中，每创建一个新的对象就会在堆内存中开辟出
+     * 一个新的空间，而变量保存的是对象的内存地址（对象的引用），如果
+     * 两个变量保存的是同一个对象引用，当一个通过一个变量修改属性时，另一个也会受到影响
+    */
+    //见图示1
+    var a = 123;
+    var b = a;
+    a++;
+    console.log("a = "+a);//"a = 124"
+    console.log("b = "+b);//"b = 123"
+    //见图示2
+    var obj = new Object();
+    obj.name = "孙悟空"
+    var obj2 = obj;
+    //修改obj的name属性
+    obj.name = "猪八戒";
+    console.log(obj.name);//"猪八戒"
+    console.log(obj2.name);//"猪八戒"
+    //见图示3
+    obj2 = null;
+    console.log(obj);//obj
+    console.log(obj2);//null
+
+    var c = 10;
+    var d = 10;
+    console.log(c == d);//true
+    //见图示4
+    var obj3 = new Object();
+    var obj4 = new Object();
+    obj3.name = "唐僧";
+    obj4.name = "唐僧";
+    /**
+     * 当比较两个基本数据类型的值时就是比较值，
+     * 而比较两个引用数据类型时，比较的是对象的内存地址
+     *    如果两个对象是一摸一样的，但是地址不同，也是false
+    */
+    console.log(obj3 == obj4);//false
+
+  </script>
+</head>
+<body>
+  <h3>图示（1）</h3>
+  <img src="img/1.png" style="width: 700px;"/>
+  <hr/>
+  <h3>图示（2）</h3>
+  <img src="img/2.png" style="width: 700px;"/>
+  <hr/>
+  <h3>图示（3）</h3>
+  <img src="img/3.png" style="width: 700px;"/>
+  <hr/>
+  <h3>图示（4）</h3>
+  <img src="img/4.png" style="width: 700px;"/>
+  <hr/>
+</body>
+</html>

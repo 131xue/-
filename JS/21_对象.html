@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    /**
+     * JS中的数据类型
+     * - String
+     * - Number
+     * - Boolean
+     * - Null
+     * - Undefiined 未定义
+     *   - 以上五种数据类型属于基本数据类型，以后我们看到的值
+     *     只要不是上边的五种，全都是对象
+     * - Object
+     * 
+     * 基本数据类型都是单一的值"hello" 123 true,
+     * 值和值之间没有任何联系。
+     * 
+     * 基本数据类型的数据，创建的变量都是独立的，不能成为一个整体。
+     * 
+     * 对象属于一种复合的数据类型，在对象中可以保存多个不同数据类型的属性
+     * 
+     * 对象的分类：
+     *  1.内建对象
+     *    - 由ES标准中定义的对象，在任何ES的实现中都可以使用
+     *    - 比如Math String Number Boolean Function Object...
+     *  2.宿主对象
+     *    - 由js运行环境提供的对象，目前来讲主要指浏览器提供的对象
+     *    - 如BOM、DOM
+     *  3.自定义对象
+     *    - 由开发人员自己创建的对象
+    */
+    //创建对象
+    /**
+     * 使用new关键字调用的函数，是构造函数constructor
+     * 构造函数是专门用来创建对象的函数
+     * 使用typeof检查一个对象时会返回object
+    */
+    var obj = new Object();
+    /**
+     * 在对象中保存的值称为属性
+     * 向对象添加属性
+     * 语法：对象.属性名 = 属性值;
+     * 
+    */
+    obj.name = "猴子";
+    obj.gender = "男";
+    obj.age = 500;
+    /**
+     * 读取对象中的属性
+     * 语法：对象.属性名
+     * 如果读取对象中没有的属性不会报错会返回undefined
+    */
+   console.log(obj.name);
+   console.log(obj.hello);//undefined
+   /**
+    * 修改对象的属性值
+    * 语法: 对象.属性名 = 新值
+   */
+   obj.name = "tom"
+   /**
+    * 删除对象的属性
+    *  语法: delete 对象.属性名
+   */
+   delete obj.name;
+   /**
+    * 属性名：
+    *  - 对象的属性名不强制要求遵守标识符的规范
+    *    什么名字都可以使用，但是使用时还是按照标识符的规范
+    * 
+   */
+  obj.var = "hello";
+  /**
+   * 如果要使用特殊的属性名，不能采用.的方式来操作
+   * 需要使用另一种方式：
+   *    语法: 对象["属性名"] = 属性值
+   * 读取时也要采用这种方式
+   * 
+   * 使用[]这种形式去操作属性更加的灵活
+   *  在[]中可以直接传递一个变量，这样变量值是多少就会读取那个属性
+   *  如下面obj["123"]与obj[n]
+  */
+  //obj.123 = 789;//报错
+  obj["123"] = 789;
+  var n = "123";
+  console.log(obj["123"]);//打印789
+  console.log(obj[n]);//与obj["123"]等价
+  /**
+   * 属性值
+   *  JS对象的属性值可以是任意的数据类型,甚至也可以是一个对象
+   * 
+  */
+  obj.test = true;
+  obj.test = null;
+  obj.test = undefined;
+
+  //创建一个对象
+  var obj2 = new Object();
+  obj2.name = "猪八戒";
+  //将obj2设置为obj的属性
+  obj.test = obj2;
+  console.log(obj.test.name);
+  /**
+   * in 运算符
+   *  - 通过该运算符可以检查一个对象中是否含有指定的属性
+   *    如果有则返回true，没有则返回false
+   *  - 语法
+   *    "属性名" in 对象
+  */
+  //检查obj中是否含有test2属性
+  console.log("test2" in obj)
+  console.log("test" in obj)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

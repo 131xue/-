@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    /**
+     * 强制类型转换
+     *  - 将一个数据类型强制转换为其他的数据类型
+     *  - 类型转换主要是指，将其他的数据类型转换为 String Number Boolean
+     * 
+    */
+   /**
+    * 将其他数据类型转换为String
+    * 方式1：
+    *   - 调用被转换数据类型的toString()方法
+    *   - 该方法不会影响原变量，它会将转换的结果返回
+    *   - 注意：null和undefined没有toString()方法
+    * 方式2：
+    *   - 调用String()函数，并将被转换的数据作为参数传递给函数
+    *     对于Number和Boolen实际上就是调用toString()方法
+    *     但对于null和undefined就不会调用toString()方法，它会将null直接转换为"null",
+    *     undefined转换为"undefined"
+    * 
+   */
+  var a = 123;
+  //调用a的toString()
+  a = a.toString()
+  a = null;
+  a.toString()//会报错
+
+  a = undefined;
+  a.toString()//会报错
+  
+  var b = 456;
+  b = String(b)
+
+  b = null;
+  b = String(a)
+  b = undefined;
+  b = String(b);
+
+  /**
+   * 将其他数据类型转换为Number
+   * 转换方式一：
+   *  使用Number()函数
+   *    - 字符串转数字
+   *    1.如果是纯数据字符串，则直接将其转换为数字
+   *    2.如果字符串中有非数字字符，则转换为NaN
+   *    3.如果字符串中是空串或者是一个全是空格的字符串则转换为0
+   * 
+   *    - 布尔转数字
+   *    1.true转为1
+   *    2.false转为0
+   * 
+   *    - Null转数字  0
+   *    - undefined转数字 N
+   * 
+   * 转换方式二：
+   *  - parseInt() 把一个字符串转换为一个整数
+   *  - parseFloat() 把一个字符串转换为一个浮点数
+   *    
+   * 
+   * 
+  */
+  var n = "123"
+  n = Number(n)
+
+  /**
+   * parseInt()可以将一个字符串中有效的整数内容取出来，然后转换为Number
+  */
+  var s = "123px"
+  s = parseInt(s)//123
+  parseInt("b123")//NaN
+  /**
+   * parseFloat()作用和parseInt()类似，不同的是它可以获得有效的小数
+  */
+  s = "123.456px"
+  s = parseFloat(s)//123.456
+
+  /**
+   * 如果对非String使用parseInt()或parseFloat()
+   * 它会将其转换为String,然后在操作
+  */
+  s = true;
+  s = parseInt(s)//会得到结果NaN
+  parseInt(123.45)//得到结果123
+
+  /**
+   * 将其他数据类型转换为Boolean
+   *  - 使用Boolean()函数
+   *    1.数字转布尔：除了0和NaN（false）,其余的都是true
+   *    2.字符串转布尔：除了空串，其余都是true
+   *    3.null和undefined都会转换成flse
+   *    4.对象也会转换为true
+  */
+  a = 123;
+  a = Boolean(a);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
