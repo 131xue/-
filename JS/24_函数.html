@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    /**
+     * 函数
+     *  - 函数也是一个对象
+     *  - 函数中可以封装一些功能（代码），在需要时可以执行这些功能
+     *  - 函数中可以保存一些代码在需要的时候调用
+     *  - typeof检查一个函数对象时，会返回function
+    */
+   //在开发中很少使用构造函数来创建一个函数对象
+   //创建一个函数对象
+   //可以将要封装的代码以字符串的形式传递给构造函数
+   var fun = new Function("console.log('Hello JavaScript');");
+   //console.log(fun)
+   //封装到函数中的代码啊不会立即执行
+   //函数中的代码会在函数调用的时候执行
+   //调用函数语法：函数对象()
+   //调用函数时，函数中的代码会按照顺序执行
+   fun();
+   /**
+    * 使用函数声明来创建一个函数
+    *   语法：
+    *       function 函数名([形参1,形参2...形参N]){
+    *         语句...
+    *       }
+   */
+  function fun2(){
+    console.log("这是第二个函数---");
+    document.write("(> _ <)");
+  }
+  console.log(fun2)
+  //调用函数
+  fun2();
+  /**
+   * 使用函数表达式来创建一个函数
+   * var  函数名 = function([形参1,形参2...形参N]){
+   *    语句...
+   * }
+  */
+  var fun3 = function(){
+    console.log("匿名函数");
+  };
+  fun3();
+  /**
+   * 定义一个用来求两个数和的函数
+   * 可以在函数的()中来指定一个或多个形参
+   * 多个形参之间用,隔开，声明形参就相当于在函数内部声明了变量
+   * 但是不赋值
+  */
+  function sum(a,b){
+    console.log(a+b);
+  }
+  /**
+   * 在调用函数时可以在()中指定实参（实际参数）
+   * 实参将会赋值给函数中对应的形参
+  */
+  sum(1,2);
+  /**
+   * 调用函数时解析器不会检查实参的类型
+   * 所以要注意，是否有可能会接收到非法的参数，如果有可能
+   * 则需要对参数进行类型的检查
+   * 
+   * 函数的实参可以是任意的数据类型
+  */
+  sum(123,"hello");
+  /**
+   * 调用函数时，解析器也不会检查实参的数量
+   * 多余的实参不会被赋值
+   * 如果实参的数量少于形参的数量，则没有实参的形参将是undefined
+  */
+ sum(123,456,"hello",true,null);
+ sum(123);//形参b是undefined
+
+ /**
+  * 可以使用return来设置函数的返回值
+  * 语法：
+  *     return 值
+  * return 后的值将会作为函数的执行结果返回
+  * 可以定义一个变量来接收该结果
+  * 
+  * 在函数中return后的语句都不会被执行
+  * 如果return语句后不跟任何值就相当于返回一个undefined
+  * 如果函数中不写return,也会返回undefined
+  * 
+  * return 后可以跟任意类型的值
+ */
+  function sum(a,b,c){
+    var d = a + b + c;
+    return d;
+    alert("hello");
+  }
+  //变量result的值就是函数的执行结果
+  //函数返回什么result的值就是什么
+  var result = sum(4,5,6);
+  console.log(result)
+  ////////////////////////练习////////////////////
+  /**
+   * 定义一个函数，判断一个数字是否是偶数，如果是返回true，否则返回false
+   * 
+  */
+   function isOu(num){
+    return num % 2 == 0;
+   }
+   /**
+    * 定义一个函数，可以根据半径计算一个圆的面积并返回计算结果
+   */
+   function mianji(r){
+    return 3.14*r*r;
+   }
+   /**
+    * 创建一个函数，可以在控制台中输出一个人的信息
+    * 
+    * 实参可以是任意的数据类型，也可以是一个对象
+    * 当参数过多时，可以将参数封装到一个对象中，然后通过对象传递
+   */
+   function sayHello(o){
+    console.log("我是"+o.name+",今年我"+o.age+"岁了,"+o.gender+",住在"+o.address);
+   }
+   sayHello("猪八戒",500,'男',"高老庄");
+   //创建一个对象
+   var obj = {
+      name:"孙悟空",
+      age:500,
+      gender:"男",
+      address:"花果山"
+   };
+   sayHello(obj);
+   /**
+    * 实参可以是一个对象，也可以是一个函数
+   */
+   function fun4(a){
+    console.log("a = "+a);
+    //a(obj);//调用的是sayHello函数
+   }
+   fun4(sayHello);
+   //fun4(function(){alert("hello")})
+   /**
+    * manji()
+    *  - 调用函数
+    *  - 相当于使用的是函数的返回值
+    * manji
+    *  - 函数对象
+    *  - 相当于直接使用函数对象
+   */
+  fun4(mianji(10));//相当于传的是314
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

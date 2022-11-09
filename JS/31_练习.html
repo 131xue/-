@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    /******************写出以下代码的执行结果*******************/
+    var a1 = 123;
+    function fun1(){
+      console.log("a1 = "+a1)//123
+    }
+    fun1();
+    /***********************************************************/
+    var a2 = 123;
+    function fun2(){
+      console.log("a2 = "+a2);//undefined
+      //a2在函数内部被提前声明，a2修改的是局部变量，不影响全局变量
+      var a2 = 456;
+    }
+    fun2();
+    console.log("a2 = "+a2);//123
+    /***********************************************************/
+    var a3 = 123;
+    function fun3(){
+      console.log("a3 = "+a3);//123
+      //没有var声明，a3 = 456成为全局变量
+      a3 = 456;
+    }
+    fun3();
+    console.log("a3 = "+a3);//456
+    /***********************************************************/
+    var a4 = 123;
+    function fun4(a4){
+      console.log("a4 = "+a4);//undefined
+      //定义形参就相当于在函数作用域中声明了变量
+      a4 = 456;//修改的是局部变量：形参声明的变量
+    }
+    fun4();
+    console.log("a4 = "+a4);//123
+     /***********************************************************/
+     var a5 = 123;
+     function fun5(a5){
+      console.log("a5 = "+a5);//123
+      a5 = 456;
+     }
+     fun5(123);//传参123
+     console.log("a5 = "+a5);//123
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

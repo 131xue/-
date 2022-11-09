@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    function fun(){
+      alert("循环执行前");
+      for(var i = 0;i<5;i++){
+      if(i == 2){
+        //使用break可以退出当前的循环
+        //break;
+
+        //continue用于跳过当次循环
+        //continue;
+
+        //return可以结束整个函数
+        return;
+      }
+    }
+    alert("循环结束");
+  }
+  //返回值可以是任意的数据类型,也可以是一个对象
+  //也可以是一个函数
+  function fun2(){
+    return 10;
+    //return true;
+    //return "hello";
+    //return {name:"test"};
+  }
+  var a = fun2();
+
+  function fun3(){
+    function fun4(){
+      alert("我是fun4")
+    }
+    return fun4;
+  }
+  a = fun3();
+  console.log(a);
+  //a();
+  fun3()();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
