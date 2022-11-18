@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    /**
+     * 创建一个Person构造函数
+     *  - 在Person构造函数中，为每一个对象都添加了一个sayName方法
+     *    目前我们的方法是在构造函数内部创建的
+     *      也就是构造函数每执行一次就会创建一个新的sayName方法
+     *    也是所有实例的sayName是唯一的
+     *    这样就导致构造函数执行一次就会创建一个新的方法
+     *      执行一万次，就会创建一万个新方法，这是完全没有必要的
+     * 
+    */
+    function Person(name,age,gender){
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+      //向对象中添加一个方法
+      /**
+       * 这种写法，构造函数每执行一次就会创建一个新的sayName方法
+       * 也就是所有sayName都是唯一的
+      */
+      /* 
+      this.sayName = function(){
+        console.log("我是:"+this.name);
+      }; 
+      */
+      this.sayName = fun;
+    }
+    //将sayName方法在全局作用域中定义
+    /**
+     * 将函数定义在全局作用域，污染了全局作用域的命名空间
+     * 而且定义在全局作用域中很不安全
+    */
+    function fun(){
+      console.log("hello,我是"+this.name);
+    }
+    //创建Person实例
+    var per = new Person("孙悟空",500,"男");
+    var per2 = new Person("猪八戒",300,"男");
+    //sayName定义在构造函数里面时是false，定义为全局函数时是true
+    console.log(per.sayName == per2.sayName);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

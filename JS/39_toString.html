@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    function Person(name,age,gender){
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+    }
+    Person.prototype.toString = function(){
+      return "Person[name = "+this.name+",age = "+this.age+",gender"+this.gender+"]";
+    }
+    //创建一个Person实例
+    var per = new Person("孙悟空",500,"男");
+    //当我们直接在页面中打印一个对象时，实际上是输出的对象的toString()方法的返回值
+    var result = per.toString();
+    console.log(result);//[object object]
+    console.log(per.hasOwnProperty("toString"));//false
+    console.log(per.__proto__.hasOwnProperty("toString"));//false
+    console.log(per.__proto__.__proto__.hasOwnProperty("toString"));//true
+    //如果我们希望在输出对象时不输出[object object],可以为对象添加一个toString()方法
+    //这样写只能作用在per这个对象，如果再创建一个对象toString打印的还是object，所以
+    //要想所有对象都起作用，就在构造函数的原型中修改
+   /*  per.toString = function(){
+      return "Person[name = "+this.name+",age = "+this.age+",gender"+this.gender+"]";
+    } */
+    console.log(per);//person
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

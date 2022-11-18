@@ -22,6 +22,11 @@
      *    4.将新建的对象作为返回值返回
      *  使用同一个构造函数创建的对象，我们称为一类对象，也将一个构造函数称为一个类
      *    我们将通过一个构造函数创建的对象，称为是该类的实例
+     * 
+     *  this的情况：
+     *    1.当以函数的形式调用时，this是window
+     *    2.当以方法的形式调用时，谁调用方法this就是谁
+     *    3.当以构造函数的形式调用时，this就是创建的那个对象
     */
     function Person(name,age,gender){
       this.name = name;
@@ -41,6 +46,10 @@
      * 如果是返回true,否则返回false
     */
     console.log(per instanceof Person);
+    /**
+     * 所有的对象都是Object的后代
+     * 所以任何和Object做instanceof检查时都会返回true
+    */
   </script>
 </head>
 <body>

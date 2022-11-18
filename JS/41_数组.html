@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    /**
+     * 内建对象
+     * 宿主对象
+     * 自定义对象
+     * 
+     * 数组(Array)
+     *  - 数组也是一个对象
+     *  - 它和普通对象功能类似，也是用来存储一些值的
+     *    不同的是普通对象是使用字符串作为属性名的，数组使用数字作为索引
+     *    来操作元素。
+     *  - 索引：
+     *        从0开始的整数就是索引
+     *  - 数组的存储性能比普通对象要好，在开发中，我们经常使用数组来存储一些数据
+     * 
+    */
+    //创建数组对象
+    var arr = new Array();
+    console.log(typeof arr);//Object
+    /**
+     * 向数组中添加元素
+     * 语法：数组[索引] = 值
+    */
+   arr[0] = 10;
+   arr[1] = 33;
+   arr[2] = 22;
+   /**
+    * 读取数组中的元素
+    * 语法：数组[索引]
+    *   如果读取不存在的索引，不会报错而是返回undefined
+   */
+    console.log(arr[3]);//undefined
+    /**
+     * 获取数组的长度
+     * 可以使用length属性来获取数组的长度(元素的个数)
+     *  语法：数组.length
+     * 
+     * 对于连续的数组，使用length可以获取到数组的长度(元素的个数)
+     * 对于非连续的数组,使用length获取到的是最大索引+1
+     * 
+     *    尽量不要创建非连续的数组
+    */
+
+    /**
+     *  修改length
+     *    如果修改的length大于原长度，则多出部分会空出来
+     *    如果修改的length小于原长度，则多出的元素会被删除
+    */
+    
+    //向数组的最后一个位置添加元素
+    arr[arr.length] = 70;
+    arr[arr.length] = 80;
+
+    //使用字面量创建数组时，可以在创建时就指定数组中的元素
+    var arr1 = [1,2,3,4,5,10];
+    //使用构造函数创建数组时，也可以同时添加元素，将要添加的元素作为构造函数的参数
+    //元素之间使用,隔开
+    var arr2 = new Array(10,20,30);
+    //创建一个数组，数组中只有一个元素10
+    arr = [10];
+    //创建一个长度为10的数组
+    arr2 = new Array(10);
+    //数组中的元素可以是任意的数据类型
+    arr = ["hello",1,true,null,undefined];
+    console.log(arr);//hello,1,true,,
+    //也可以是对象
+    var obj = {name:"孙悟空"};
+    arr[arr.length] = obj;
+    arr = [{name:"孙悟空"},{name:"沙和尚"},{name:"猪八戒"}];
+    console.log(arr[1].name);//沙和尚
+    //arr也可以是一个函数
+    arr = [function(){alert(1)},function(){alert(2)}];
+    arr[0]();//调用函数alert(1)
+    //数组中也可以放数组,下面这个是二维数组
+    arr = [[1,2,3],[3,4,5],[5,6,7]];
+    console.log(arr[1]);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
