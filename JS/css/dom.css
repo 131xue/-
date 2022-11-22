@@ -1,0 +1,60 @@
+#total{
+  display: block;
+  width: 600px;
+  height:600px;
+  margin: 0 auto;
+}
+#city ul,#game ul,#phone ul{
+  list-style: none;
+}
+#city li,#game li,#phone li{
+  display: inline;
+  width: 30px;
+  height: 20px;
+  background-color: aquamarine;
+  border:1px solid black;
+}
+.left_container{
+  display: block;
+  width: 350px;
+  height: 600px;
+  float: left;
+}
+.inner1{
+  display: block;
+  width: 350px;
+  height: 250px;
+  float: left;
+  border: 1px solid black;
+}
+.inner1 p{
+  display: block;
+  width: 200px;
+  height: 20px;
+  margin-left: 36px;
+}
+.inner2{
+  display: block;
+  width: 350px;
+  height: 100px;
+  float: left;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+.inner2 div{
+  padding-left: 36px;
+  padding-top: 10px;
+}
+#btnList{
+  display: block;
+  width: 240px;
+  height: 600px;
+  float: right;
+}
+#btnList div button{
+  display: block;
+  width: 240px;
+}
+#btnList div:nth-child(n+2){
+  margin-top: 10px;
+}
